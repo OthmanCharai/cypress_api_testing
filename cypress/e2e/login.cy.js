@@ -1,4 +1,3 @@
-const { config } = require("cypress/types/bluebird");
 
 describe(" inach backend testing", () => {
   
@@ -14,16 +13,18 @@ describe(" inach backend testing", () => {
             'email':Cypress.env('email'),
             'password':Cypress.env('password')
            },
-          headers: {
+           headers: {
             Accept:
               " application/json",
               Content :' application/json'
-          },
+          }, 
         }).as("queueRequest");
         cy.get("@queueRequest").then((todos) => {
             console.log(todos.body.token);
         });
-     
+        
+      
+
     });
   });
   
